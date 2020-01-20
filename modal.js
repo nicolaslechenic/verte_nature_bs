@@ -25,7 +25,7 @@ function validationmodalMail(event) {
 }
 //mot de passe modal
 var mdp = document.getElementById('InputPassword1');
-var mdpError = document.getElementById('mdpError');
+var mdpErreur = document.getElementById('mdpError');
 var regexMdp = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$/;
 
 formValidmodal.addEventListener('click', validMdp);
@@ -33,15 +33,15 @@ formValidmodal.addEventListener('click', validMdp);
 function validMdp(event) {
         if (mdp.validity.valueMissing) {
                 event.preventDefault();
-                mdpError.textContent = 'Mot de passe manquant';
-                mdpError.style.color = 'orange';
+                mdpErreur.textContent = 'Mot de passe manquant';
+                mdpErreur.style.color = 'orange';
         } else if (regexMdp.test(mdp.value) == false) {
                 event.preventDefault();
-                mdpError.textContent = 'Format incorrect';
-                mdpError.style.color = 'red';
+                mdpErreur.textContent = 'Format incorrect';
+                mdpErreur.style.color = 'red';
         } else {
-                mdpError.textContent = '✔';
-                mdpError.style.color = 'green';
+                mdpErreur.textContent = '✔';
+                mdpErreur.style.color = 'green';
         }
 }
 

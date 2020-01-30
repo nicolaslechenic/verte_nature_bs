@@ -11,8 +11,11 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
     <link rel="stylesheet" href="public/stylesheets/style.css">
-    
-    
+    <script src="public/javascripts/creds.js" async></script>
+    <script src="public/javascripts/jq.js" async></script>
+    <script src="public/javascripts/api.js" async></script>
+
+
 
     <title>Verte nature</title>
 </head>
@@ -42,17 +45,17 @@
 
                                 <form action="/action_page.php" class="was-validated">
                                     <div class="form-group">
-                                        
+
                                         <label for="uname">Adresse Mail:</label>
-                                        <input type="text" id="InputEmail1" class="form-control" 
-                                            placeholder="Entrer votre mail" name="uname" >
+                                        <input type="text" id="InputEmail1" class="form-control"
+                                            placeholder="Entrer votre mail" name="uname">
                                         <span id="mailErrormodal"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="pwd">Mot de passe:</label>
                                         <input type="password" class="form-control" id="InputPassword1"
-                                            placeholder="Entrer votre mot de passe" name="pswd" >
-                                       <span id="mdpError"></span>
+                                            placeholder="Entrer votre mot de passe" name="pswd">
+                                        <span id="mdpError"></span>
                                     </div>
                                     <div class="form-group form-check">
                                         <label class="form-check-label">
@@ -69,18 +72,92 @@
                                 </br>
                                 <h4>S'inscrire</h4>
                                 </br>
-                                <form action="/action_page.php">
-                                    <label for="usrname">Votre Mail </label>
-                                    <input type="text" class="form-control" id="usrname" name="usrname" required></br>
+                                <div>
+                                    <!-- <label for="usrname">Votre Mail </label>
+                                    <input type="text" class="form-control" id="usrname" name="usrname" required></br> -->
 
-                                    <label for="psw">Mot De Passe</label>
+
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-lg-12">
+                                                <label for="usr">Nom:</label>
+                                                <input type="text" id="InputNom1" class="form-control">
+                                                <span id="missnom"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-lg-12">
+                                            <div class="form-group">
+                                                <label for="usr">Prénom:</label>
+                                                <input type="text" id="InputPrenom1" class="form-control">
+                                                <span id="missPrenom"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-lg-12">
+                                            <div class="form-group">
+                                                <label for="adress">Votre adresse:</label>
+                                                <input type="text" name="adresse" id="InputAdress" class="form-control"
+                                                    onkeyup="search()">
+                                                <ul id="adressList"></ul>
+                                                <span id="errorAdress"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-lg-12">
+                                            <div class="form-group">
+                                                <label for="email">Votre E-mail:</label>
+                                                <input type="text" name="email" id="InputEmail2" class="form-control">
+                                                <span id="mailError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <label for="psw">Mot De Passe:</label>
                                     <input type="password" class="form-control" id="psw" name="psw"
                                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                         title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                         required>
                                     </br>
-                                    <button type="submit" class="btn btn-success">Soumettre</button>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-lg-12">
+                                            <div class="form-group">
+                                                <label for="comment">Commentaires:</label>
+                                                <textarea class="form-control" rows="5" id="comment"></textarea>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-lg-12">
+                                            <div class="form-group">
+                                                <label for="tel">Votre numero de tel:</label>
+                                                <input type="text" name="tel" id="InputTel" class="form-control">
+                                                <span id="errorTel"></span>
+                                                <br><br>
+                                                <button id="button" onclick="submit()" class="bg-success text-white"
+                                                    style="margin: 15px 0px 25px 0px; width: 100%;">Envoyer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                                    <!-- <button type="submit" class="btn btn-success">Soumettre</button> -->
+                                </div>
                             </div>
 
                             <!-- Modal footer -->
@@ -96,12 +173,13 @@
 
 
 
+
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-lg-12">
                             <figure>
-                                <a href="index.html"><img src="public/images/logos/logo-verte-nature2.png" alt="logo-verte-nature"
-                                        class="img-fluid img-logo"></a></figure>
+                                <a href="index.html"><img src="public/images/logos/logo-verte-nature2.png"
+                                        alt="logo-verte-nature" class="img-fluid img-logo"></a></figure>
                         </div>
                     </div>
                     <!-- A grey horizontal navbar that becomes vertical on small screens  -->
@@ -140,32 +218,43 @@
             <main class="container">
 
 
-                Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, il est précisé aux utilisateurs du site legalplace.fr l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.
+                Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie
+                numérique, il est précisé aux utilisateurs du site legalplace.fr l'identité des différents intervenants
+                dans le cadre de sa réalisation et de son suivi.
 
                 Edition du site
-                Le site legalplace.fr est édité par la société LegalPlace, société par actions simplifiée au capital de 10.051,50 euros, dont le siège social est situé 7 rue Marcel Dassault, 92100 Boulogne-Billancourt, immatriculée au registre du commerce et des sociétés sous le numéro d’identification unique 814 428 785 RCS Nanterre.
-                
+                Le site legalplace.fr est édité par la société LegalPlace, société par actions simplifiée au capital de
+                10.051,50 euros, dont le siège social est situé 7 rue Marcel Dassault, 92100 Boulogne-Billancourt,
+                immatriculée au registre du commerce et des sociétés sous le numéro d’identification unique 814 428 785
+                RCS Nanterre.
+
                 Responsable de publication
                 Samuel Goldstein
-                
+
                 Hébergeur
                 Le site legalplace.fr est hébergé par la société DigitalOcean Inc.
-                
+
                 Adresse: 101 6th Ave, New York, NY 10013, États-Unis
-                
+
                 Téléphone: +1 347-903-7918
-                
-                Le stockage des données personnelles des Utilisateurs est exclusivement réalisé sur les centre de données ("clusters") localisés dans des Etats membres de l'Union Européenne de la société DigitalOcean Inc.
-                
+
+                Le stockage des données personnelles des Utilisateurs est exclusivement réalisé sur les centre de
+                données ("clusters") localisés dans des Etats membres de l'Union Européenne de la société DigitalOcean
+                Inc.
+
                 Nous contacter
                 Par email : support@legalplace.fr
-                
+
                 CNIL
-                La société LegalPlace conservera dans ses systèmes informatiques et dans des conditions raisonnables de sécurité une preuve de la transaction comprenant le bon de commande et la facture.
-                
+                La société LegalPlace conservera dans ses systèmes informatiques et dans des conditions raisonnables de
+                sécurité une preuve de la transaction comprenant le bon de commande et la facture.
+
                 La société LegalPlace a fait l’objet d’une déclaration à la CNIL sous le numéro 1986932.
-                
-                Conformément aux dispositions de la loi 78-17 du 6 janvier 1978 modifiée, l’Utilisateur dispose d'un droit d'accès, de modification et de suppression des informations collectées par LegalPlace. Pour exercer ce droit, il reviendra à l’Utilisateur d'envoyer un message à l'adresse suivante : support@legalplace.fr
+
+                Conformément aux dispositions de la loi 78-17 du 6 janvier 1978 modifiée, l’Utilisateur dispose d'un
+                droit d'accès, de modification et de suppression des informations collectées par LegalPlace. Pour
+                exercer ce droit, il reviendra à l’Utilisateur d'envoyer un message à l'adresse suivante :
+                support@legalplace.fr
 
 
 
